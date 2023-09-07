@@ -27,17 +27,18 @@ jobs:
     - checkout: self
       persistCredentials: true # required for pushing tags
     - checkout: InvokeBuildTasks
-    - pwsh: .build.ps1 InstallBuildDependencies
-      workingDirectory: $(Build.SourcesDirectory)\$(Build.Repository.Name)
+
+    - pwsh: $(Build.SourcesDirectory)/InvokeBuildTasks/BootStrap.ps1
+      workingDirectory: $(Build.SourcesDirectory)/$(Build.Repository.Name)
       displayName: 'Install Dependencies'
 
-    - pwsh: .build.ps1 Build
+    - pwsh: Invoke-Build Build
       displayName: 'Build'
-      workingDirectory: $(Build.SourcesDirectory)\$(Build.Repository.Name)
+      workingDirectory: $(Build.SourcesDirectory)/$(Build.Repository.Name)
 
-    - pwsh: .build.ps1 Test
+    - pwsh: Invoke-Build Test
       displayName: 'Test'
-      workingDirectory: $(Build.SourcesDirectory)\$(Build.Repository.Name)
+      workingDirectory: $(Build.SourcesDirectory)/$(Build.Repository.Name)
 
     - task: PublishTestResults@2
       displayName: Publish Test Results
@@ -57,16 +58,16 @@ jobs:
         ArtifactName: Artifacts
         publishLocation: 'pipeline'
 
-    - pwsh: .build.ps1 TagSource
+    - pwsh: Invoke-Build TagSource
       displayName: 'TagSource'
-      workingDirectory: $(Build.SourcesDirectory)\$(Build.Repository.Name)
+      workingDirectory: $(Build.SourcesDirectory)/$(Build.Repository.Name)
       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
       env:
         SYSTEM_ACCESSTOKEN: $(System.AccessToken) # required for pushing tags
 
-    - pwsh: .build.ps1 PublishModule
+    - pwsh: Invoke-Build PublishModule
       displayName: 'PublishModule'
-      workingDirectory: $(Build.SourcesDirectory)\$(Build.Repository.Name)
+      workingDirectory: $(Build.SourcesDirectory)/$(Build.Repository.Name)
       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
       env:
         PowerShellModulePublishKey: "$(PowerShellModulePublishKey)"
