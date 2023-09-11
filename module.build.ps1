@@ -15,8 +15,8 @@ if ($Clean) {
 Add-BuildTask Module Build, Test
 
 ## This InvokeBuild configuration script depends on a shared "InvokeBuildTasks" repository being present
-if (Test-Path "$PSScriptRoot\InvokeBuildTasks") {
-    . $PSScriptRoot\InvokeBuildTasks\InitializeModuleBuild.ps1
+if (Test-Path "$PSScriptRoot/InvokeBuildTasks") {
+    . $PSScriptRoot/InvokeBuildTasks/InitializeModuleBuild.ps1
 } else {
-    . $PSScriptRoot\..\InvokeBuildTasks\InitializeModuleBuild.ps1
+    . $PSScriptRoot/../InvokeBuildTasks/InitializeModuleBuild.ps1
 }

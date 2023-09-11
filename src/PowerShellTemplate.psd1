@@ -24,6 +24,10 @@
     # Use an empty array if there is nothing to export.
     VariablesToExport      = @()
 
+    # Assemblies to import.
+    # These are imported _before_ ScriptsToRun
+    # TODO: Remove this if you don't have any assemblies
+    RequiredAssemblies     = @("lib/PowerShellTemplate.dll")
 
     # ID used to uniquely identify this module
     GUID                   = 'c3a4c064-f441-4b05-b08f-b65d2b20072c'

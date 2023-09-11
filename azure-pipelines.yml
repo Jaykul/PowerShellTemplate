@@ -1,11 +1,9 @@
 # Docs: https://aka.ms/yaml
 name: $(Build.DefinitionName) v$(Build.BuildId)
-## DELETE THIS LINE: You probably want to specify the pool or image to build with
-# pool: AW2
+# pool: Linux # TODO: Delete this, or specify your own agent pool
 
-## DELETE THIS LINE: Make sure this matches your default branch name
 trigger:
-- main
+- main # TODO: Make sure this matches your default branch name
 
 resources:
   repositories:
@@ -26,6 +24,7 @@ jobs:
     steps:
     - checkout: self
       persistCredentials: true # required for pushing tags
+      fetchDepth: 0 # required for gitversion
     - checkout: InvokeBuildTasks
 
     - pwsh: $(Build.SourcesDirectory)/InvokeBuildTasks/BootStrap.ps1
@@ -49,6 +48,22 @@ jobs:
         buildConfiguration: Release
         failTaskOnFailedTests: true
         testRunTitle: Pester on $(PSPlatform)
+      condition: succeededOrFailed()
+
+    - task: PublishCodeCoverageResults@1
+      displayName: Publish Code Coverage
+      inputs:
+        summaryFileLocation: '$(Build.BinariesDirectory)/coverage.xml'
+        pathToSources: $(Build.BinariesDirectory)/PowerShellTemplate
+        failIfCoverageEmpty: true
+      condition: succeededOrFailed()
+
+    - task: PublishPipelineArtifact@1
+      displayName: Publish CodeAnalysisLogs
+      inputs:
+        targetPath: $(Build.BinariesDirectory)/results.sarif
+        ArtifactName: CodeAnalysisLogs
+        publishLocation: 'pipeline'
       condition: succeededOrFailed()
 
     - task: PublishPipelineArtifact@1
