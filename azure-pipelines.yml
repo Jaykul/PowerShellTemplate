@@ -85,4 +85,4 @@ jobs:
       workingDirectory: $(Build.SourcesDirectory)/$(Build.Repository.Name)
       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
       env:
-        PowerShellModulePublishKey: "$(PowerShellModulePublishKey)"
+        POWERSHELLMODULEPUBLISHKEY: "$(POWERSHELLMODULEPUBLISHKEY)"
