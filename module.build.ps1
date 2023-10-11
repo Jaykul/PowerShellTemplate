@@ -10,7 +10,7 @@ $Script:RequiredCodeCoverage = 0.75
 
 ## Always define the default task first
 if ($Clean) {
-    Add-BuildTask CleanBuild Build, Test
+    Add-BuildTask CleanBuild Clean, Build, Test
 }
 Add-BuildTask Module Build, Test
 
