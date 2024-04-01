@@ -33,9 +33,9 @@
     RootModule             = 'PowerShellTemplate.psm1'
 
     # Common stuff for all our modules:
-    CompanyName            = 'loanDepot.com, LLC'
+    CompanyName            = 'Copyright Holder Name'
     Author                 = 'DevOps Heroes'
-    Copyright              = "Copyright 2022 loanDepot.com, LLC"
+    Copyright              = "Copyright 2022 Copyright Holder Name"
 
     # Minimum version of the Windows PowerShell engine required by this module
     PowerShellVersion      = '5.1'

@@ -45,16 +45,14 @@ Classes, enums, and any module initialization code can be placed in a `classes` 
 
 ### Guidelines
 
-For some best practices regarding PowerShell, we recommend reading the [PoshCode Practice and Style guide](https://github.com/PoshCode/PowerShellPracticeAndStyle). Though not complete, it has a good selection of recommendations.
-
-Within loanDepot, we also have [LD DevOps PowerShell Coding Standards](https://confluence.loandepot.com/display/DEV/LD+DevOps+PowerShell+Coding+Standards). In short:
+For some best practices regarding PowerShell, we recommend reading the [PoshCode Practice and Style guide](https://github.com/PoshCode/PowerShellPracticeAndStyle). Though not complete, it has a good selection of recommendations. Your company might want more specific coding standards, but this repo starts with some basics:
 
 Formatting:
 
 - Use [One True Brace Style](https://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS_.28OTBS.29)
-- Use [Pascal Casing](https://en.wikipedia.org/wiki/PascalCase) unless PowerShell has a previously established case, and with the exception of environment variables, which should be ALL CAPS (e.g. $env:USERNAME)
+- Use [Pascal Casing](https://en.wikipedia.org/wiki/PascalCase) unless PowerShell has a previously established case, and with the exception of environment variables, which should be ALL CAPS snake case (e.g. $env:DOTNET_ROOT)
 - Use 4-space indentation
-- If there are more than three parameters, named parameters must be used instead of positional parameters
+- If there are more than three parameters, named parameters should be used instead of positional parameters
 - Aliases must not be used, instead expanded to the full command name
 - Functions must have valid comment-based help, including (at minimum) a synopsis, parameter help, and at least one working example
 
@@ -65,7 +63,7 @@ Structure:
 - Functions must use `[CmdletBinding()]` to enable the use of common parameters and `-?` for help.
 - Functions should specify their output object type with `[OutputType()]`
 
-### Folder Structure
+### Folder Structure Of a working module
 
 ```
 \--.vscode
@@ -99,7 +97,7 @@ At a minimum, each function must have a test invocation for each ParameterSet an
 
 We use `Invoke-Build` to build our modules, to ensure we can reproduce the build locally on our laptops the same as in our CI/CD environment
 
-At loanDepot we have our build tasks defined in a shared repository "InvokeBuildTasks", so all our module builds are basically identical.
+We keep shared build tasks defined in a [Tasks](/PoshCode/Tasks) repository, so all our module builds are basically identical.
 
 To build locally, you'll need to have that repository checked out adjacent to this one. Then, you can just switch to this folder and run: `Invoke-Build`
 

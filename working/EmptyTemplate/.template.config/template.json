@@ -1,6 +1,6 @@
 ﻿{
     "$schema": "http://json.schemastore.org/template",
-    "identity": "LoanDepot.PowerShell.Module",
+    "identity": "PoshCode.PowerShell.Module",
     "name": "PowerShell Module Template",
     "shortName": "PSModule",
     "author": "Joel Bennett",
@@ -11,7 +11,6 @@
       "language": "PowerShell",
       "type": "project"
     },
-    "sourceName": "PowerShellTemplate",
     "sources": [
         {
             "source": "../../",
@@ -34,21 +33,25 @@
         }
     ],
     "symbols": {
+        "name": {
+            "type": "parameter",
+            "isRequired": true,
+            "FileRename": "PowerShellTemplate",
+            "replaces": "PowerShellTemplate"
+        },
         "author": {
             "type": "parameter",
-            "description": "The name of the author of this module",
             "defaultValue": "DevOps Heroes",
             "replaces": "DevOps Heroes"
         },
         "company": {
             "type": "parameter",
-            "description": "The name of the company that owns this module (implied copyright)",
-            "defaultValue": "loanDepot.com, LLC",
-            "replaces": "loanDepot.com, LLC"
+            "description": "The name of the person or company that owns this module (implied copyright)",
+            "defaultValue": "<Copyright Holder Name>",
+            "replaces": "Copyright Holder Name"
         },
         "description": {
             "type": "parameter",
-            "description": "A short description of the module",
             "isRequired": true,
             "defaultValue": "A PowerShell Module for ...",
             "replaces": "A Template for PowerShell Modules"

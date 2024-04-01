@@ -6,6 +6,6 @@ If included, the `build.psd1` should be modified to contain `CopyDirectories = '
 
 ## Examples
 
-- CSV or other data files containing information used by the module (e.g. loanDepot.Configuration)
-- dotnet templates (e.g. PowerShellTemplate)
-- XSLT files (e.g. loanDepot.EnvironmentVariables)
+- CSV or other data files containing information used by the module
+- dotnet templates
+- XSLT files

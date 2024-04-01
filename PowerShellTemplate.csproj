@@ -3,9 +3,9 @@
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageVersion>1.0</PackageVersion>
-    <PackageId>LD.DevOps.Templates.PowerShell</PackageId>
-    <Title>LoanDepot Templates for PowerShell</Title>
-    <Authors>DevOps Heroes</Authors>
+    <PackageId>PoshCode.Templates.PowerShell</PackageId>
+    <Title>Templates for PowerShell</Title>
+    <Authors>Joel "Jaykul" Bennett</Authors>
     <Description>Templates to use when creating PowerShell Modules.</Description>
     <PackageTags>dotnet-new;templates;powershell</PackageTags>
 

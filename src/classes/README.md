@@ -8,7 +8,7 @@ This allows control of prerequisites, as in the case of ModuleFileClass which re
 ## Examples
 
 - `#using` statements to load enums etc from another module
-- param() block defining settable module variables (e.g. loanDepot.Azure.Provisioning)
-- Constants for use within the module (e.g. loanDepot.EnvironmentVariables)
-- Enums used for validation / tab-completion in function parameters (e.g. loanDepot.Configuration)
-- Classes used for DSC (e.g. UpdateServicesServerDsc)
+- param() block defining settable module variables
+- Constants for use within the module
+- Enums used for validation / tab-completion in function parameters
+- Classes used for DSC resources

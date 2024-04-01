@@ -5,7 +5,7 @@
         "Common"
     ],
     "name": "PowerShell Example Module",
-    "identity": "LoanDepot.PowerShell.Template.ExampleModule",
+    "identity": "PoshCode.PowerShell.Template.ExampleModule",
     "shortName": "PSExample",
     "tags": {
       "language": "PowerShell",
@@ -46,8 +46,8 @@
         },
         "company": {
             "type": "parameter",
-            "defaultValue": "loanDepot.com, LLC",
-            "replaces": "loanDepot.com, LLC"
+            "defaultValue": "Copyright Holder Name",
+            "replaces": "Copyright Holder Name"
         },
         "description": {
             "type": "parameter",

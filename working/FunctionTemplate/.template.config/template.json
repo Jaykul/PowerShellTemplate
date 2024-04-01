@@ -1,6 +1,6 @@
 {
     "$schema": "http://json.schemastore.org/template",
-    "identity": "loanDepot.PowerShell.Function",
+    "identity": "PoshCode.PowerShell.Function",
     "name": "PowerShell Function Template",
     "shortName": "PSFunction",
     "author": "Joel Bennett",
@@ -20,25 +20,27 @@
             ]
         }
     ],
-    "sourceName": "New-Function",
     "symbols": {
+        "name": {
+            "type": "parameter",
+            "isRequired": true,
+            "FileRename": "New-Function",
+            "replaces": "New-Function"
+        },
         "synopsis": {
             "type": "parameter",
-            "description": "A brief description of the function",
             "isRequired": true,
             "replaces": "Serves as a placeholder"
         },
         "description": {
             "type": "parameter",
-            "description": "A longer description of the function",
             "isRequired": true,
             "replaces": "Explains the placeholder"
         },
         "exampleUsage": {
             "type": "parameter",
-            "description": "An example of how to use the function",
             "isRequired": true,
-            "replaces": "Invoke-Thing -Parameter 'Value'"
+            "replaces": "Invoke-Thing"
         }
     }
 }

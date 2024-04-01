@@ -86,9 +86,9 @@
                 $PSD1.Author | Should Be $env:UserName
             }
 
-            It "Updates the PSD1 with 'loanDepot.com, LLC' as the company name when otherwise unspecified" {
+            It "Updates the PSD1 with 'Copyright Holder Name' as the company name when otherwise unspecified" {
                 $PSD1.CompanyName | Should Not Be $Json.Symbols.Company.replaces
-                $PSD1.CompanyName | Should Be 'loanDepot.com, LLC'
+                $PSD1.CompanyName | Should Be 'Copyright Holder Name'
             }
         }
     }
